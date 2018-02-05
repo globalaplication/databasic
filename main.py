@@ -1,9 +1,9 @@
 database = "./data"
-rows = ["isim","numarasi","sinifi"]
-def read(id, column=rows[0]):
+column = ["isim","numarasi","sinifi"]
+def read(id, column=column[0]):
     with open(database) as dataread:
         source = dataread.read().splitlines()
-    return source[id].split(",")[rows.index(column)]
+    return source[id].split(",")[column.index(column)]
 def add(string, data=""):
     dict = {}
     for s in [string]:
@@ -11,10 +11,10 @@ def add(string, data=""):
             key = sp.strip().split(":")[0]
             value = sp.strip().split(":")[1]
             dict [key] = value
-    for r in rows:
-        data = data   dict[r]   ","
+    for r in column:
+        data = data + dict[r] + ","
     with open(database,"a") as append:
-        append.write(data[0:-1] "\n")
+        append.write(data[0:-1] + "\n")
 
-add("isim:ahmet, sinifi:6K, numarasi:1001")
+add("isim:ali, sinifi:5K, numarasi:1001")
 print read(0, "isim")
