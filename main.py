@@ -1,11 +1,9 @@
-database = "./data.txt"
+database = "./data"
 rows = ["isim","numarasi","sinifi"]
-
 def read(id, column=rows[0]):
     with open(database) as dataread:
         source = dataread.read().splitlines()
     return source[id].split(",")[rows.index(column)]
-
 def add(string, data=""):
     dict = {}
     for s in [string]:
@@ -18,8 +16,5 @@ def add(string, data=""):
     with open(database,"a") as append:
         append.write(data[0:-1] "\n")
 
-
-
-#add("isim:ahmet, sinifi:10K, numarasi:2")
-
-print read(1, "sinifi")
+add("isim:ahmet, sinifi:6K, numarasi:1001")
+print read(0, "isim")
