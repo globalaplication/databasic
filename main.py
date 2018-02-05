@@ -15,6 +15,5 @@ def add(string, data=""):
         data = data + dict[r] + ","
     with open(database,"a") as append:
         append.write(data[0:-1] + "\n")
-
 add("isim:ali, sinifi:5K, numarasi:1001")
 print read(0, "isim")
